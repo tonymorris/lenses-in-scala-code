@@ -18,7 +18,7 @@ case class CoState[F, R](
 }
 
 object CoState {
-  def extract[F, R](s: CoState[F, CoState[F, R]]): CoState[F, R] =
-    CoState(s.get, k => s set k set k)
+  def coFlatten[F, R](s: CoState[F, R]): CoState[F, CoState[F, R]] =
+    s coFlatMap identity
 }
 
