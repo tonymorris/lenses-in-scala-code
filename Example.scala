@@ -9,19 +9,19 @@ object Example extends App {
   )
 
   object Employee {
-    val name: Employee @@ String =
+    val name: Lens[Employee, String] =
       Lens(
         _.name
       , (e, n) => e copy (name = n)
       )
 
-    val salary: Employee @@ Int =
+    val salary: Lens[Employee, Int] =
       Lens(
         _.salary
       , (e, s) => e copy (salary = s)
       )
 
-    val age: Employee @@ Int =
+    val age: Lens[Employee, Int] =
       Lens(
         _.age
       , (e, a) => e copy (age = a)
